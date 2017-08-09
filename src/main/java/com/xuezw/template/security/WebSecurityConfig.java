@@ -38,7 +38,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	}
 	
 	@Bean
-	UserDetailsService customUserService(){
+	public UserDetailsService customUserService(){
 		return new CustomUserService();
 	}
 	
@@ -52,11 +52,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		return new BCryptPasswordEncoder();
 	}
 
-	@Override
+	/*@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		// TODO Auto-generated method stub
 		auth.userDetailsService(customUserService());
-	}
+	}*/
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {

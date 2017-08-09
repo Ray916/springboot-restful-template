@@ -6,7 +6,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import com.xuezw.template.dao.SysUserRepository;
-import com.xuezw.template.security.JwtUser;
+import com.xuezw.template.domain.SysUser;
 
 public class CustomUserService implements UserDetailsService {
 
@@ -16,7 +16,7 @@ public class CustomUserService implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		// TODO Auto-generated method stub
-		JwtUser user = (JwtUser)userRepository.findByUsername(username);
+		SysUser user = userRepository.findByUsername(username);
 		if(user == null){
 			throw new UsernameNotFoundException(String.format("No user found with username '%s'.", username));
 		}

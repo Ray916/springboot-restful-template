@@ -19,7 +19,6 @@ import com.xuezw.template.domain.SysRole;
 import com.xuezw.template.domain.SysUser;
 import com.xuezw.template.domain.User;
 import com.xuezw.template.security.JwtTokenUtil;
-import com.xuezw.template.security.JwtUser;
 
 @Service
 public class AuthServiceImpl implements AuthService {
@@ -78,7 +77,6 @@ public class AuthServiceImpl implements AuthService {
 	        // Reload password post-security so we can generate token
 	        System.out.println("#######################22222222222");
 	        final UserDetails userDetails = userDetailsService.loadUserByUsername(username);
-	        System.out.println("############" + userDetails.getPassword());
 	        final String token = jwtTokenUtil.generateToken(userDetails);
 	        return token;
 	    }
@@ -87,7 +85,7 @@ public class AuthServiceImpl implements AuthService {
 	    public String refresh(String oldToken) {
 	        final String token = oldToken.substring(tokenHead.length());
 	        String username = jwtTokenUtil.getUsernameFromToken(token);
-	        JwtUser user = (JwtUser)userDetailsService.loadUserByUsername(username);
+	        SysUser user = (SysUser)userDetailsService.loadUserByUsername(username);
 	        if (jwtTokenUtil.canTokenBeRefreshed(token, user.getLastPasswordResetDate())){
 	            return jwtTokenUtil.refreshToken(token);
 	        }
