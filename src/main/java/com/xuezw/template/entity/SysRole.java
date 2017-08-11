@@ -1,4 +1,4 @@
-package com.xuezw.template.domain;
+package com.xuezw.template.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,7 +15,7 @@ public class SysRole {
 	private Long id;
 	
 	@Column(name="name")
-	private String name;
+	private String name;  
 
 	public Long getId() {
 		return id;

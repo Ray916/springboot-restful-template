@@ -1,7 +1,8 @@
 package com.xuezw.template.auth;
 
-import java.util.Arrays;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -15,9 +16,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.xuezw.template.dao.SysUserRepository;
-import com.xuezw.template.domain.SysRole;
-import com.xuezw.template.domain.SysUser;
 import com.xuezw.template.domain.User;
+import com.xuezw.template.entity.SysRole;
+import com.xuezw.template.entity.SysUser;
 import com.xuezw.template.security.JwtTokenUtil;
 
 @Service
@@ -57,8 +58,11 @@ public class AuthServiceImpl implements AuthService {
 	        sysuser.setEmail(userToAdd.getEmail());
 	        sysuser.setPassword(encoder.encode(rawPassword));
 	        SysRole role = new SysRole();
+	        role.setId(15L);
 	        role.setName("user");
-	        sysuser.setRoles(Arrays.asList(role));
+	        Set<SysRole> roles = new HashSet<SysRole>();
+	        roles.add(role);
+	        sysuser.setRoles(roles);
 	        sysuser.setLastPasswordResetDate(new Date());
 	        //添加角色
 	        userRepository.save(sysuser);
@@ -70,12 +74,10 @@ public class AuthServiceImpl implements AuthService {
 	    public String login(String username, String password) {
 	        UsernamePasswordAuthenticationToken upToken = new UsernamePasswordAuthenticationToken(username, password);
 	        // Perform the security
-	        System.out.println("#######################11111111111");
 	        final Authentication authentication = authenticationManager.authenticate(upToken);
 	        SecurityContextHolder.getContext().setAuthentication(authentication);
 
 	        // Reload password post-security so we can generate token
-	        System.out.println("#######################22222222222");
 	        final UserDetails userDetails = userDetailsService.loadUserByUsername(username);
 	        final String token = jwtTokenUtil.generateToken(userDetails);
 	        return token;

@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-import com.xuezw.template.domain.Heroes;
+import com.xuezw.template.entity.Heroes;
 
 public interface HeroesRepository extends JpaRepository<Heroes, Integer> {
 

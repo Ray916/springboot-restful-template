@@ -1,9 +1,10 @@
-package com.xuezw.template.domain;
+package com.xuezw.template.entity;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
-import java.util.List;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -42,17 +43,16 @@ public class SysUser implements UserDetails{
 	@Column(name="last_password_reset_date")
 	private Date lastPasswordResetDate;
 
-	//@ManyToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
-	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@ManyToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
 	@JoinTable(name="sys_user_roles", joinColumns={@JoinColumn(name="sys_user_id", referencedColumnName="id")}, 
 	inverseJoinColumns={@JoinColumn(name="roles_id", referencedColumnName="id")})
-	private List<SysRole> roles;
+	private Set<SysRole> roles = new LinkedHashSet<SysRole>();  
 	
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		// TODO Auto-generated method stub
-		List<GrantedAuthority> auths = new ArrayList<GrantedAuthority>();
-		List<SysRole> roles = this.getRoles();
+		Set<GrantedAuthority> auths = new HashSet<GrantedAuthority>();
+		Set<SysRole> roles = this.getRoles();
 		for(SysRole role: roles){
 			auths.add(new SimpleGrantedAuthority(role.getName()));
 		}
@@ -96,11 +96,11 @@ public class SysUser implements UserDetails{
 		this.id = id;
 	}
 
-	public List<SysRole> getRoles() {
+	public Set<SysRole> getRoles() {
 		return roles;
 	}
 
-	public void setRoles(List<SysRole> roles) {
+	public void setRoles(Set<SysRole> roles) {
 		this.roles = roles;
 	}
 
