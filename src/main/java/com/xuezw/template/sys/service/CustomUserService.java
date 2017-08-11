@@ -1,12 +1,12 @@
-package com.xuezw.template.service;
+package com.xuezw.template.sys.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
-import com.xuezw.template.dao.SysUserRepository;
-import com.xuezw.template.entity.SysUser;
+import com.xuezw.template.sys.dao.SysUserRepository;
+import com.xuezw.template.sys.entity.SysUser;
 
 public class CustomUserService implements UserDetailsService {
 

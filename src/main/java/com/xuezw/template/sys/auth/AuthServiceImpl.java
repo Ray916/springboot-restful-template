@@ -1,4 +1,4 @@
-package com.xuezw.template.auth;
+package com.xuezw.template.sys.auth;
 
 import java.util.Date;
 import java.util.HashSet;
@@ -15,11 +15,11 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.xuezw.template.dao.SysUserRepository;
-import com.xuezw.template.domain.User;
-import com.xuezw.template.entity.SysRole;
-import com.xuezw.template.entity.SysUser;
-import com.xuezw.template.security.JwtTokenUtil;
+import com.xuezw.template.sys.dao.SysUserRepository;
+import com.xuezw.template.sys.domain.User;
+import com.xuezw.template.sys.entity.SysRole;
+import com.xuezw.template.sys.entity.SysUser;
+import com.xuezw.template.sys.security.JwtTokenUtil;
 
 @Service
 public class AuthServiceImpl implements AuthService {

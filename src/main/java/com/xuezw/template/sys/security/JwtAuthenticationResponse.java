@@ -1,4 +1,4 @@
-package com.xuezw.template.security;
+package com.xuezw.template.sys.security;
 
 import java.io.Serializable;
 

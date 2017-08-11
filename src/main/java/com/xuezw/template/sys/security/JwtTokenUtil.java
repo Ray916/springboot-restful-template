@@ -1,4 +1,4 @@
-package com.xuezw.template.security;
+package com.xuezw.template.sys.security;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
-import com.xuezw.template.entity.SysUser;
+import com.xuezw.template.sys.entity.SysUser;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

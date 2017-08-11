@@ -1,4 +1,4 @@
-package com.xuezw.template.domain;
+package com.xuezw.template.sys.domain;
 
 public class User {
 

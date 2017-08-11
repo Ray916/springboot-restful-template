@@ -1,4 +1,4 @@
-package com.xuezw.template.entity;
+package com.xuezw.template.sys.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

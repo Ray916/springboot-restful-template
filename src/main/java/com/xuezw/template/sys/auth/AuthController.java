@@ -1,4 +1,4 @@
-package com.xuezw.template.auth;
+package com.xuezw.template.sys.auth;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.xuezw.template.domain.User;
-import com.xuezw.template.security.JwtAuthenticationRequest;
-import com.xuezw.template.security.JwtAuthenticationResponse;
+import com.xuezw.template.sys.domain.User;
+import com.xuezw.template.sys.security.JwtAuthenticationRequest;
+import com.xuezw.template.sys.security.JwtAuthenticationResponse;
 
 @RestController
 public class AuthController {

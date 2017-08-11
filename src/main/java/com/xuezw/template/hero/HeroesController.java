@@ -1,4 +1,4 @@
-package com.xuezw.template.web;
+package com.xuezw.template.hero;
 
 import java.util.List;
 
@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.xuezw.template.dao.HeroesRepository;
-import com.xuezw.template.entity.Heroes;
 
 @RestController
 @RequestMapping("/heroes")

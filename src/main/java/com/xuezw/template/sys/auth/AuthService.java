@@ -1,6 +1,6 @@
-package com.xuezw.template.auth;
+package com.xuezw.template.sys.auth;
 
-import com.xuezw.template.domain.User;
+import com.xuezw.template.sys.domain.User;
 
 public interface AuthService {
     boolean register(User userToAdd);
