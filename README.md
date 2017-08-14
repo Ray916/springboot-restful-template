@@ -6,7 +6,7 @@
 
 `com.xuezw.template.hero`包为事例Demo；
 
-###角色
+### 角色
 
 采用用户与角色多对多的的关系（Hibernate的ManyToMany），角色有三种：ADMIN, USER, ACTUATOR；
 
