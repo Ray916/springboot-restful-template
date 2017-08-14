@@ -15,6 +15,6 @@ public class DemoApplication {
 		SpringApplication app = new SpringApplication(DemoApplication.class);
 		app.setBannerMode(Banner.Mode.OFF);
 		app.run(args);
-		logger.info("Hello Welcome to Spring Boot Template!");
+		logger.info("欢迎使用 Spring Boot Template!");
 	}
 }
